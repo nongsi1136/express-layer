@@ -63,11 +63,9 @@ router.post("/sign-up", async (req, res, next) => {
       },
     });
 
-    return res.status(200).json({
-      userId: newUser.userId,
-      email: newUser.email,
-      name: newUser.name,
-    });
+    return res
+      .status(200)
+      .json({ message: "회원가입이 완료되었습니다.", userInfo });
   } catch (error) {
     next(error);
   }
