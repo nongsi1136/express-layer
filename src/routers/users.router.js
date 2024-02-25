@@ -7,7 +7,7 @@ import authMiddleware from "../middlewares/auth.middleware.js";
 const router = express.Router();
 
 // 회원가입 API
-router.post("/sign-up", async (req, res, next) => {
+router.post("/users/sign-up", async (req, res, next) => {
   const { email, password, confirmPassword, name, age, gender, profileImage } =
     req.body;
 
@@ -72,7 +72,7 @@ router.post("/sign-up", async (req, res, next) => {
 });
 
 // 로그인 API
-router.post("/sign-in", async (req, res, next) => {
+router.post("users/sign-in", async (req, res, next) => {
   const { email, password } = req.body;
 
   try {
@@ -98,7 +98,7 @@ router.post("/sign-in", async (req, res, next) => {
 });
 
 // 사용자 조회
-router.get("/users", authMiddleware, async (req, res, next) => {
+router.get("/users/me", authMiddleware, async (req, res, next) => {
   const { userId } = req.user;
 
   const user = await prisma.users.findFirst({
