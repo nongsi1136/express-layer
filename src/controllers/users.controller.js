@@ -4,7 +4,7 @@ import UserService from "../services/users.service.js";
 
 const userService = new UserService();
 
-export default class UserController {
+export default class UserService {
   // constructor() {
   //   this.userService = userService;
   // }

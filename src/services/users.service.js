@@ -3,7 +3,7 @@ import UserRepository from "../repositories/users.repository.js";
 const userRepository = new UserRepository();
 
 export default class UserService {
-  signup = async (email, password, name) => {
+  signup = async (email, password, confirmPassword, name) => {
     // signup 컨트롤러의 비즈니스 로직
 
     // 필수 파라미터 검증하기

@@ -3,7 +3,7 @@ import cookieParser from "cookie-parser";
 import UsersRouter from "./src/routers/users.router.js";
 
 const app = express();
-const PORT = 3326;
+const PORT = 3356;
 
 app.use(cookieParser());
 app.use(express.json());

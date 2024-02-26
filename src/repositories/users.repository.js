@@ -4,9 +4,32 @@ export default class UserRepository {
   // userId로 유저를 조회하거나
   // 유저를 생성하는 동작이 필요함
 
-  getUserByEmail = async () => {};
+  getUserByEmail = async (email) => {
+    const user = await prisma.users.findFirst({
+      where: {
+        email,
+      },
+    });
+    return user;
+  };
 
-  getUserById = async () => {};
+  getUserById = async (userId) => {
+    const user = await prisma.users.findUnique({
+      where: {
+        id: userId,
+      },
+    });
+    return user;
+  };
 
-  createUser = async () => {};
+  createUser = async (email, password, name) => {
+    const user = await prisma.users.create({
+      data: {
+        email,
+        password,
+        name,
+      },
+    });
+    return user;
+  };
 }
