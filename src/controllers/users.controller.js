@@ -12,7 +12,7 @@ export default class UserService {
   // 회원가입 라우터랑 연결할 컨트롤러 메서드
   signup = async (req, res, next) => {
     try {
-      const { email, password, confirmPassword, name, profileImage } = req.body;
+      const { email, password, confirmPassword, name } = req.body;
 
       // 필수 파라미터 검증하기
       if (!email || !password || !confirmPassword || !name) {
@@ -37,7 +37,7 @@ export default class UserService {
       }
 
       // 회원가입 서비스 호출
-      const user = await userService.signup(
+      const user = await this.userService.signup(
         email,
         password,
         name,
